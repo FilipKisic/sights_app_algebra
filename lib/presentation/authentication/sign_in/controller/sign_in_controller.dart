@@ -17,6 +17,7 @@ class SignInController extends Notifier<SignInState> {
   void signIn(String email, String password) async {
     state = LoadingState();
 
+    await Future.delayed(const Duration(seconds: 2));
     final result = await _authRepository.signIn(email, password);
 
     switch (result) {

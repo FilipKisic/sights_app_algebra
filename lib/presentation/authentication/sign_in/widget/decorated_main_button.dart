@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class DecoratedMainButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
+  final bool isLoading;
 
   const DecoratedMainButton({
     super.key,
     required this.label,
     required this.onPressed,
+    this.isLoading = false,
   });
 
   @override
@@ -31,15 +33,17 @@ class DecoratedMainButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
         ),
-        onPressed: onPressed,
-        child: Text(
-          label,
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: .bold,
-            fontSize: 16,
-          ),
-        ),
+        onPressed: isLoading ? null : onPressed,
+        child: isLoading
+            ? CircularProgressIndicator(color: Colors.white,)
+            : Text(
+                label,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: .bold,
+                  fontSize: 16,
+                ),
+              ),
       ),
     );
   }
