@@ -4,7 +4,7 @@ import 'package:sights_app/di.dart';
 import 'package:sights_app/presentation/authentication/sign_in/controller/state/sign_in_state.dart';
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_main_button.dart';
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_text_field.dart';
-import 'package:sights_app/presentation/home/screen/home_screen.dart';
+import 'package:sights_app/presentation/config/app_router.dart';
 import 'package:sights_app/presentation/style/app_text_styles.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
@@ -27,7 +27,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
       signInControllerProvider,
       (_, state) {
         if (state is AuthenticatedState) {
-          Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
+          Navigator.of(context).pushReplacementNamed(AppRouter.home);
         }
         if (state is ErrorState) {
           showDialog<void>(
