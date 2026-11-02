@@ -5,6 +5,7 @@ import 'package:sights_app/di.dart';
 import 'package:sights_app/presentation/authentication/sign_in/controller/state/sign_in_state.dart';
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_main_button.dart';
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_text_field.dart';
+import 'package:sights_app/presentation/config/app_router.dart';
 import 'package:sights_app/presentation/home/screen/home_screen.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
@@ -18,14 +19,15 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(signInControllerProvider);
-
     ref.listen(signInControllerProvider, (_, state) {
+      setState(() => _isLoading = state is LoadingState);
+
       if (state is AuthenticatedState) {
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
+        Navigator.of(context).pushNamed(AppRouter.home);
         return;
       }
       if (state is ErrorState) {
@@ -66,7 +68,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 DecoratedMainButton(
                   label: 'Sign in',
                   onPressed: _signIn,
-                  isLoading: state is LoadingState,
+                  isLoading: _isLoading,
                 ),
                 const SizedBox(height: 20),
                 Row(

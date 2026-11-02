@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sights_app/firebase_options.dart';
 import 'package:sights_app/presentation/authentication/sign_in/screen/sign_in_screen.dart';
+import 'package:sights_app/presentation/config/app_router.dart';
 import 'package:sights_app/presentation/splash/screen/splash_screen.dart';
 
 void main() async {
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Montserrat'),
-      home: SignInScreen(),
+      initialRoute: AppRouter.splash,
+      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }
