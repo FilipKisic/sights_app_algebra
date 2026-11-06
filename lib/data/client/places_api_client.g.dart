@@ -13,7 +13,7 @@ part of 'places_api_client.dart';
 
 class _PlacesApiClient implements PlacesApiClient {
   _PlacesApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'http://144.91.87.48:8080/sight';
+    baseUrl ??= 'http://localhost:8080/sight';
   }
 
   final Dio _dio;

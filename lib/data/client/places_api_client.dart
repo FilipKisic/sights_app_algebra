@@ -5,7 +5,7 @@ import 'package:sights_app/domain/model/place.dart';
 
 part 'places_api_client.g.dart';
 
-@RestApi(baseUrl: 'http://144.91.87.48:8080/sight')
+@RestApi(baseUrl: 'http://localhost:8080/sight')
 abstract class PlacesApiClient {
   factory PlacesApiClient(Dio dio, {String baseUrl}) = _PlacesApiClient;
 

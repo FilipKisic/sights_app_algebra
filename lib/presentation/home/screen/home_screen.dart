@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sights_app/presentation/favorites/screen/favorites_screen.dart';
-import 'package:sights_app/presentation/places/screen/places_screen.dart';
+import 'package:sights_app/presentation/places/favorites/screen/favorites_screen.dart';
+import 'package:sights_app/presentation/places/place_list/screen/places_screen.dart';
 import 'package:sights_app/presentation/profile/screen/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
