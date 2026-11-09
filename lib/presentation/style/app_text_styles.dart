@@ -11,4 +11,9 @@ class AppTextStyles {
   static final cardTitle = TextStyle(fontSize: 16, fontWeight: .bold, color: Colors.white);
   static final cardSubtitle = TextStyle(fontSize: 14, fontWeight: .w600, color: Colors.white);
   static final cardContent = TextStyle(fontSize: 14, color: Colors.white);
+
+  static final detailsTitle = TextStyle(fontSize: 32, fontWeight: .bold);
+  static final detailsSubtitle = TextStyle(fontSize: 18, fontWeight: .w600);
+  static final detailsRating = TextStyle(fontSize: 15, fontWeight: .w600);
+  static final detailsDescription = TextStyle(fontSize: 15, fontWeight: .w500);
 }

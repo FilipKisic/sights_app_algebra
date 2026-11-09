@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sights_app/domain/model/place.dart';
+import 'package:sights_app/presentation/places/widget/rating_stars.dart';
 import 'package:sights_app/presentation/style/app_colors.dart';
-import 'package:sights_app/presentation/style/app_text_styles.dart';
-import 'package:sights_app/presentation/style/app_text_styles.dart';
 import 'package:sights_app/presentation/style/app_text_styles.dart';
 
 class PlaceCard extends StatelessWidget {
@@ -47,6 +46,8 @@ class PlaceCard extends StatelessWidget {
                   style: AppTextStyles.cardContent,
                   overflow: .ellipsis,
                 ),
+                const SizedBox(height: 13),
+                RatingStars(rating: place.rating),
               ],
             ),
           ),

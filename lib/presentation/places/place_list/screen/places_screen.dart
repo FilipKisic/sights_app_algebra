@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sights_app/di.dart';
 import 'package:sights_app/domain/model/place.dart';
+import 'package:sights_app/presentation/config/app_router.dart';
 import 'package:sights_app/presentation/places/place_list/controller/state/place_list_state.dart';
 import 'package:sights_app/presentation/places/widget/place_card.dart';
 import 'package:sights_app/presentation/style/app_text_styles.dart';
@@ -64,7 +65,7 @@ class PlacesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: Column(
         crossAxisAlignment: .start,
         children: [
@@ -74,12 +75,19 @@ class PlacesList extends StatelessWidget {
             child: ListView.separated(
               itemCount: places.length,
               separatorBuilder: (context, index) => const SizedBox(height: 10),
-              itemBuilder: (context, index) => PlaceCard(place: places[index]),
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () => _redirectToDetails(context, places[index]),
+                child: PlaceCard(place: places[index]),
+              ),
             ),
           ),
         ],
       ),
     );
+  }
+
+  void _redirectToDetails(BuildContext context, Place place) {
+    Navigator.of(context).pushNamed(AppRouter.details, arguments: place);
   }
 }
 
