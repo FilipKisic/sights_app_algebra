@@ -1,4 +1,3 @@
-import 'package:control_style/control_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sights_app/di.dart';
@@ -6,7 +5,6 @@ import 'package:sights_app/presentation/authentication/sign_in/controller/state/
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_main_button.dart';
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_text_field.dart';
 import 'package:sights_app/presentation/config/app_router.dart';
-import 'package:sights_app/presentation/home/screen/home_screen.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
