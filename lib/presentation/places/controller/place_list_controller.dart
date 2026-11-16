@@ -11,6 +11,7 @@ class PlaceListController extends Notifier<PlaceListState> {
   @override
   PlaceListState build() {
     _placeRepository = ref.read(placeRepositoryProvider);
+    getAllPlaces();
     return LoadingState();
   }
 

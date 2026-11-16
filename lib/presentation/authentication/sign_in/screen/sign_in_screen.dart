@@ -5,6 +5,7 @@ import 'package:sights_app/presentation/authentication/sign_in/controller/state/
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_main_button.dart';
 import 'package:sights_app/presentation/authentication/sign_in/widget/decorated_text_field.dart';
 import 'package:sights_app/presentation/config/app_router.dart';
+import 'package:sights_app/presentation/style/text_styles.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
@@ -49,7 +50,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 const SizedBox(height: 20),
                 Text(
                   'Please sign in into your account.',
-                  style: TextStyle(fontSize: 18, fontWeight: .bold),
+                  style: AppTextStyles.authTitle,
                 ),
                 const SizedBox(height: 30),
                 DecoratedTextField(label: 'Email', validator: _validateEmail, controller: _emailController),
