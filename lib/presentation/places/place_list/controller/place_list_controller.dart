@@ -27,4 +27,8 @@ class PlaceListController extends Notifier<PlaceListState> {
         state = ErrorState(result.error);
     }
   }
+
+  void setAsFavorite(Place place) => placeRepository.setAsFavorite(place);
+
+  void removeFromFavorites(Place place) => placeRepository.removeFromFavorites(place);
 }

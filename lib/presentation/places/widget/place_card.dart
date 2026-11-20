@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sights_app/di.dart';
 import 'package:sights_app/domain/model/place.dart';
 import 'package:sights_app/presentation/places/widget/rating_stars.dart';
 import 'package:sights_app/presentation/style/app_colors.dart';
 import 'package:sights_app/presentation/style/app_text_styles.dart';
 
-class PlaceCard extends StatelessWidget {
+class PlaceCard extends ConsumerWidget {
   final Place place;
 
   const PlaceCard({super.key, required this.place});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: .all(12),
       decoration: BoxDecoration(
@@ -52,12 +54,21 @@ class PlaceCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          Icon(
-            Icons.favorite_rounded,
-            color: Colors.white,
+          GestureDetector(
+            onTap: () => toggleFavorite(place, ref),
+            child: Icon(
+              place.isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
     );
+  }
+
+  void toggleFavorite(Place place, WidgetRef ref) {
+    place.isFavorite
+        ? ref.read(placeListControllerProvider.notifier).removeFromFavorites(place)
+        : ref.read(placeListControllerProvider.notifier).setAsFavorite(place);
   }
 }

@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:sights_app/data/client/auth_client.dart';
 import 'package:sights_app/data/client/places_api_client.dart';
+import 'package:sights_app/data/db/database_manager.dart';
+import 'package:sights_app/data/db/hive/hive_database_manager_impl.dart';
 import 'package:sights_app/data/repository/auth_repository_impl.dart';
 import 'package:sights_app/data/repository/place_repository_impl.dart';
 import 'package:sights_app/domain/repository/auth_repository.dart';
@@ -18,13 +20,19 @@ final dioProvider = Provider<Dio>((ref) => Dio());
 final authClientProvider = Provider<AuthClient>((ref) => AuthClient());
 final placeClientProvider = Provider<PlacesApiClient>((ref) => PlacesApiClient(ref.watch(dioProvider)));
 
+// ******************** DATABASE ******************** //
+final databaseManagerProvider = Provider<DatabaseManager>((ref) => HiveDatabaseManagerImpl());
+
 // ******************** REPOSITORIES ******************** //
 final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => AuthRepositoryImpl(ref.watch(authClientProvider)),
 );
 
 final placeRepositoryProvider = Provider<PlaceRepository>(
-  (ref) => PlaceRepositoryImpl(ref.watch(placeClientProvider)),
+  (ref) => PlaceRepositoryImpl(
+    ref.watch(placeClientProvider),
+    ref.watch(databaseManagerProvider),
+  ),
 );
 
 // ******************** CONTROLLERS ******************** //

@@ -24,6 +24,9 @@ dependencies:
   json_annotation: ^4.12.0
   dio: ^5.11.1
   map_launcher: ^7.0.0
+  hive_ce: ^2.23.3
+  hive_ce_flutter: ^2.5.0
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +36,7 @@ dev_dependencies:
   retrofit_generator: ^10.0.1
   build_runner: ^2.6.0
   json_serializable: ^6.10.0
+  hive_ce_generator: ^1.12.1
 
 flutter:
   uses-material-design: true

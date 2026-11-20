@@ -15,6 +15,7 @@ Place _$PlaceFromJson(Map<String, dynamic> json) => Place(
   lng: (json['lng'] as num).toDouble(),
   rating: (json['rating'] as num).toInt(),
   imageUrl: json['imageUrl'] as String?,
+  isFavorite: json['isFavorite'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$PlaceToJson(Place instance) => <String, dynamic>{
@@ -26,4 +27,5 @@ Map<String, dynamic> _$PlaceToJson(Place instance) => <String, dynamic>{
   'lng': instance.lng,
   'rating': instance.rating,
   'imageUrl': instance.imageUrl,
+  'isFavorite': instance.isFavorite,
 };
