@@ -3,8 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sights_app/di.dart';
 import 'package:sights_app/domain/model/place.dart';
-import 'package:sights_app/presentation/places/controller/state/place_list_state.dart';
-import 'package:sights_app/presentation/places/widget/place_card.dart';
+import 'package:sights_app/presentation/config/app_router.dart';
+import 'package:sights_app/presentation/places/list/controller/state/place_list_state.dart';
+import 'package:sights_app/presentation/places/list/widget/place_card.dart';
 import 'package:sights_app/presentation/style/text_styles.dart';
 
 class PlaceListScreen extends ConsumerWidget {
@@ -78,7 +79,10 @@ class ErrorWidget extends StatelessWidget {
         children: [
           Image.asset('assets/images/error_image.png', width: 250),
           Text('There was and error', style: AppTextStyles.stateTitle),
-          Text('Please try again later or check\nyour internet connection.', textAlign: .center,),
+          Text(
+            'Please try again later or check\nyour internet connection.',
+            textAlign: .center,
+          ),
         ],
       ),
     );
@@ -87,14 +91,22 @@ class ErrorWidget extends StatelessWidget {
 
 class PlaceListWidget extends StatelessWidget {
   final List<Place> places;
+
   const PlaceListWidget({super.key, required this.places});
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: places.length,
-      itemBuilder: (context, index) => PlaceCard(place: places[index]),
+      itemBuilder: (context, index) => GestureDetector(
+        onTap: () => _redirectToDetails(context, places[index]),
+        child: PlaceCard(place: places[index]),
+      ),
       separatorBuilder: (context, index) => const SizedBox(height: 10),
     );
+  }
+
+  void _redirectToDetails(BuildContext context, Place place) {
+    Navigator.of(context).pushNamed(AppRouter.details, arguments: place);
   }
 }

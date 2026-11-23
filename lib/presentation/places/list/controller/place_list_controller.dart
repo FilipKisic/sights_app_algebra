@@ -3,7 +3,8 @@ import 'package:sights_app/di.dart';
 import 'package:sights_app/domain/model/place.dart';
 import 'package:sights_app/domain/model/result.dart';
 import 'package:sights_app/domain/repository/place_repository.dart';
-import 'package:sights_app/presentation/places/controller/state/place_list_state.dart';
+import 'package:sights_app/presentation/places/list/controller/state/place_list_state.dart';
+
 
 class PlaceListController extends Notifier<PlaceListState> {
   late final PlaceRepository _placeRepository;

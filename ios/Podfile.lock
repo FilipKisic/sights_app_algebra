@@ -53,12 +53,15 @@ PODS:
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
   - GTMSessionFetcher/Core (5.3.1)
+  - map_launcher (7.0.0):
+    - Flutter
   - RecaptchaInterop (101.0.0)
 
 DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - map_launcher (from `.symlinks/plugins/map_launcher/ios`)
 
 SPEC REPOS:
   trunk:
@@ -80,6 +83,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  map_launcher:
+    :path: ".symlinks/plugins/map_launcher/ios"
 
 SPEC CHECKSUMS:
   Firebase: 7ca191e43724142f79fae653547b3382c45413cc
@@ -94,6 +99,7 @@ SPEC CHECKSUMS:
   Flutter: 71a624a5bc0c04062bf19101d501e466baf2fb47
   GoogleUtilities: db34c1c11c6f2eccb6fab2340cb8ceb1451299dc
   GTMSessionFetcher: a6d2b2aa203485893d4511ff64642dc811f7c09f
+  map_launcher: 3db84c7add757018b26fda704784c84b15dd59e0
   RecaptchaInterop: 11e0b637842dfb48308d242afc3f448062325aba
 
 PODFILE CHECKSUM: 3ba3a73b1b12adcf321a227a745625fe0888cc82

@@ -8,8 +8,8 @@ import 'package:sights_app/domain/repository/auth_repository.dart';
 import 'package:sights_app/domain/repository/place_repository.dart';
 import 'package:sights_app/presentation/authentication/sign_in/controller/sign_in_controller.dart';
 import 'package:sights_app/presentation/authentication/sign_in/controller/state/sign_in_state.dart';
-import 'package:sights_app/presentation/places/controller/place_list_controller.dart';
-import 'package:sights_app/presentation/places/controller/state/place_list_state.dart';
+import 'package:sights_app/presentation/places/list/controller/place_list_controller.dart';
+import 'package:sights_app/presentation/places/list/controller/state/place_list_state.dart';
 
 final dioProvider = Provider<Dio>((ref) => Dio());
 
